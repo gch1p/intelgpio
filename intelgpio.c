@@ -73,8 +73,13 @@ int main(int argc, char *argv[])
 	}
 
 	fseek(f, GPIO_BASE, SEEK_SET);
-	fread(&base, 2, 1, f);
+	size_t readed = fread(&base, 2, 1, f);
 	fclose(f);
+
+	if (readed < 1) {
+		fprintf(stderr, "error: readed %lu bytes\n", readed);
+		return 1;
+	}
 
 	base &= 0xfffe;
 

@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <sys/types.h>
+#include <stdint.h>
 
 #define GPIO_BASE	0x48
 #define GP_LVL		0x0c
